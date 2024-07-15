@@ -18,16 +18,13 @@ try:
     options_chrome.add_argument('--start-maximized')    # устанавливает окно браузера в максимальном режиме
 
     browser = webdriver.Chrome(options=options_chrome)
-    browser.get('https://parsinger.ru/methods/5/index.html')
-    d = {}
-    for url in browser.find_elements(By.CLASS_NAME, "urls"):
-        url = url.find_element(By.TAG_NAME, 'a').get_attribute('href')
-        browser.get(url)
-        cook = browser.get_cookies()[0].get('expiry')
-        d[url] = cook
-        browser.back()
-    max_key = max(d, key=d.get)
-    browser.get(max_key)    
-    print(browser.find_element(By.ID, 'result').text)
+    browser.get('https://parsinger.ru/selenium/5.5/3/1.html')
+    time.sleep(2)
+    count = 0
+    for url in browser.find_elements(By.CLASS_NAME, 'parent'):
+        if url.find_element(By.CLASS_NAME, 'checkbox').is_selected():   # проверяем отмечен ли чекбокс
+            count += int(url.text)
+    print(count)
+    time.sleep(2)
 finally:
     browser.quit()
