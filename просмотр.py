@@ -11,7 +11,7 @@ try:
     options_chrome.add_argument('--start-maximized')    # устанавливает окно браузера в максимальном режиме
 
     browser = webdriver.Chrome(options=options_chrome)
-    browser.get('https://parsinger.ru/selenium/5.7/4/index.html')
+    browser.get('https://parsinger.ru/selenium/5.8/3/index.html')
     time.sleep(100000)
 finally:
     browser.quit()
