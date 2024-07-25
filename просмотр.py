@@ -11,7 +11,8 @@ try:
     options_chrome.add_argument('--start-maximized')    # устанавливает окно браузера в максимальном режиме
 
     browser = webdriver.Chrome(options=options_chrome)
-    browser.get('https://parsinger.ru/selenium/5.8/3/index.html')
+    # browser.get('http://parsinger.ru/blank/1/1.html')
+    browser.get('https://stepik.org/lesson/732079/step/8?unit=733612')
     time.sleep(100000)
 finally:
     browser.quit()
